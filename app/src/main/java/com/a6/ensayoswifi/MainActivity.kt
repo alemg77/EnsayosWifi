@@ -17,19 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val mainViewModel = MainViewModel()
-
-        mainViewModel.test()
-
-        mainViewModel.checkControl.observe(this, {
-            textViewEncontrados.text = mainViewModel.devices.size.toString()
-            val number = mainViewModel.noDevices.size + mainViewModel.devices.size
-            textViewCheckControl.text = number.toString()
-        })
-
-
-        Log.d(TAG, "Fin del OnCreate")
-
     }
 
 

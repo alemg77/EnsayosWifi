@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi;
+package com.a6.ensayoswifi.utils;
 
 import java.io.*;
 import java.net.*;
