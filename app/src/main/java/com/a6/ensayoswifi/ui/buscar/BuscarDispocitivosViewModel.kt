@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.UI.buscar
+package com.a6.ensayoswifi.ui.buscar
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -23,6 +23,9 @@ class BuscarDispocitivosViewModel : ViewModel() {
 
     private val _checkControl = MutableLiveData<Int>()
     val checkControl: LiveData<Int> = _checkControl
+
+    private val _newDevices = MutableLiveData<Boolean>()
+    val newDevices: LiveData<Boolean> = _newDevices
 
     init {
         _checkControl.postValue(0)
@@ -60,6 +63,7 @@ class BuscarDispocitivosViewModel : ViewModel() {
             when (val response = repository.getDevice(number.toString())){
                 is State.Success -> {
                     devices.add(response.data as Device)
+                    _newDevices.postValue(true)
                     Log.d(TAG, "Success")
                 }
                 is State.Error -> {

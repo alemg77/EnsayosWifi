@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.UI.base
+package com.a6.ensayoswifi.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

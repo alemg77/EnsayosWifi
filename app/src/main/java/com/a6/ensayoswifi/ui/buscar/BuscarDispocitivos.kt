@@ -1,14 +1,11 @@
-package com.a6.ensayoswifi.UI.buscar
+package com.a6.ensayoswifi.ui.buscar
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.a6.ensayoswifi.R
-import com.a6.ensayoswifi.UI.base.BaseFragment
 import com.a6.ensayoswifi.databinding.BuscarDispocitivosFragmentBinding
+import com.a6.ensayoswifi.ui.base.BaseFragment
 
 class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
 
@@ -16,9 +13,17 @@ class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
 
     private lateinit var viewModel: BuscarDispocitivosViewModel
 
+    private lateinit var deviceAdapter:DeviceAdapter
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProvider(this).get(BuscarDispocitivosViewModel::class.java)
+
+        deviceAdapter = DeviceAdapter(viewModel.devices)
+        binding.RecyclerViewDispocitivos.layoutManager = LinearLayoutManager(activity)
+        binding.RecyclerViewDispocitivos.adapter = deviceAdapter
 
         viewModel.test()
 
@@ -31,6 +36,10 @@ class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
             val number = viewModel.noDevices.size + viewModel.devices.size
             binding.textViewContadorBuscados.text = number.toString()
             binding.textViewContadorEncontrados.text = viewModel.devices.size.toString()
+        })
+
+        viewModel.newDevices.observe(viewLifecycleOwner, {
+            deviceAdapter.actualizarDevices(viewModel.devices)
         })
     }
 

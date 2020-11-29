@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/buscarDispocitivos"
-        android:name="com.a6.ensayoswifi.UI.buscar.BuscarDispocitivos"
+        android:name="com.a6.ensayoswifi.ui.buscar.BuscarDispocitivos"
         android:label="buscar_dispocitivos_fragment"
         tools:layout="@layout/buscar_dispocitivos_fragment" />
 </navigation>
