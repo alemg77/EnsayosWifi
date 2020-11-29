@@ -7,7 +7,7 @@ import com.a6.ensayoswifi.R
 import com.a6.ensayoswifi.databinding.BuscarDispocitivosFragmentBinding
 import com.a6.ensayoswifi.ui.base.BaseFragment
 
-class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
+class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>(), DeviceAdapter.DeviceListener {
 
     override fun getFragmentView() = R.layout.buscar_dispocitivos_fragment
 
@@ -21,7 +21,7 @@ class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
 
         viewModel = ViewModelProvider(this).get(BuscarDispocitivosViewModel::class.java)
 
-        deviceAdapter = DeviceAdapter(viewModel.devices)
+        deviceAdapter = DeviceAdapter(viewModel.devices, this)
         binding.RecyclerViewDispocitivos.layoutManager = LinearLayoutManager(activity)
         binding.RecyclerViewDispocitivos.adapter = deviceAdapter
 
@@ -41,6 +41,10 @@ class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>() {
         viewModel.newDevices.observe(viewLifecycleOwner, {
             deviceAdapter.actualizarDevices(viewModel.devices)
         })
+    }
+
+    override fun deviceOnClick(position: Int) {
+        val device = viewModel.devices[position]
     }
 
 }

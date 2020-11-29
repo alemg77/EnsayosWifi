@@ -1,16 +1,15 @@
 package com.a6.ensayoswifi.ui.buscar
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.a6.ensayoswifi.databinding.DeviceItemBinding
 import com.a6.ensayoswifi.network.model.Device
 
-class DeviceAdapter(private var dataSet: ArrayList<Device>) :
+class DeviceAdapter(private var dataSet: ArrayList<Device>,  private val listener:DeviceListener) :
     RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
 
-    lateinit var bindind: DeviceItemBinding
+    private lateinit var binding: DeviceItemBinding
 
     override fun getItemCount() = dataSet.size
 
@@ -20,19 +19,21 @@ class DeviceAdapter(private var dataSet: ArrayList<Device>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        bindind = DeviceItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(bindind)
+        binding = DeviceItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding,listener)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.actualizarCelda(dataSet[position])
     }
 
-    inner class ViewHolder(private val binding: DeviceItemBinding) :
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    inner class ViewHolder(private val binding: DeviceItemBinding, private val listener:DeviceListener) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        override fun onClick(v: View?) {
-            TODO("Funcion onClick sin implementar!!!")
+        init {
+            binding.layoutDevice.setOnClickListener {
+                listener.deviceOnClick(adapterPosition)
+            }
         }
 
         fun actualizarCelda(device: Device) {
@@ -41,6 +42,10 @@ class DeviceAdapter(private var dataSet: ArrayList<Device>) :
             binding.versionValue.text = device.version
             binding.ipValue.text = device.ipAdress
         }
+    }
+
+    interface DeviceListener{
+        fun deviceOnClick (position: Int)
     }
 
 }

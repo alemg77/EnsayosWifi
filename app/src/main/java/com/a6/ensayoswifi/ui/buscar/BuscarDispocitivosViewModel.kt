@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class BuscarDispocitivosViewModel : ViewModel() {
 
-
     private val repository = Repository(getBaseURL())
 
     var devices = arrayListOf<Device>()
