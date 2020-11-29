@@ -1,6 +1,6 @@
 package com.a6.ensayoswifi.network
 
-import com.a6.ensayoswifi.network.model.Device
+import com.a6.ensayoswifi.model.Device
 import retrofit2.http.GET
 import retrofit2.http.Url
 

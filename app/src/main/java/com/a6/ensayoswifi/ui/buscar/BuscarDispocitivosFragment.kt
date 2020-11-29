@@ -2,18 +2,20 @@ package com.a6.ensayoswifi.ui.buscar
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.a6.ensayoswifi.R
 import com.a6.ensayoswifi.databinding.BuscarDispocitivosFragmentBinding
 import com.a6.ensayoswifi.ui.base.BaseFragment
 
-class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>(), DeviceAdapter.DeviceListener {
+class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBinding>(),
+    DeviceAdapter.DeviceListener {
 
     override fun getFragmentView() = R.layout.buscar_dispocitivos_fragment
 
     private lateinit var viewModel: BuscarDispocitivosViewModel
 
-    private lateinit var deviceAdapter:DeviceAdapter
+    private lateinit var deviceAdapter: DeviceAdapter
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -44,7 +46,10 @@ class BuscarDispocitivos : BaseFragment<BuscarDispocitivosFragmentBinding>(), De
     }
 
     override fun deviceOnClick(position: Int) {
-        val device = viewModel.devices[position]
-    }
 
+        val action = BuscarDispocitivosFragmentDirections
+            .actionBuscarDispocitivosToTemperatureFragment(viewModel.devices[position])
+        Navigation.findNavController(binding.root).navigate(action)
+
+    }
 }

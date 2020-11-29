@@ -7,7 +7,20 @@
 
     <fragment
         android:id="@+id/buscarDispocitivos"
-        android:name="com.a6.ensayoswifi.ui.buscar.BuscarDispocitivos"
+        android:name="com.a6.ensayoswifi.ui.buscar.BuscarDispocitivosFragment"
         android:label="buscar_dispocitivos_fragment"
-        tools:layout="@layout/buscar_dispocitivos_fragment" />
+        tools:layout="@layout/buscar_dispocitivos_fragment" >
+        <action
+            android:id="@+id/action_buscarDispocitivos_to_temperatureFragment"
+            app:destination="@id/temperatureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.a6.ensayoswifi.TemperatureFragment"
+        android:label="fragment_temperature"
+        tools:layout="@layout/fragment_temperature" >
+        <argument
+            android:name="device"
+            app:argType="com.a6.ensayoswifi.model.Device" />
+    </fragment>
 </navigation>

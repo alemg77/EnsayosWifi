@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.a6.ensayoswifi.network.Repository
 import com.a6.ensayoswifi.network.State
-import com.a6.ensayoswifi.network.model.Device
+import com.a6.ensayoswifi.model.Device
 import com.a6.ensayoswifi.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

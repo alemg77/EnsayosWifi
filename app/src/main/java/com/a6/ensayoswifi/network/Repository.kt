@@ -1,6 +1,6 @@
 package com.a6.ensayoswifi.network
 
-import com.a6.ensayoswifi.network.model.Device
+import com.a6.ensayoswifi.model.Device
 
 class Repository(private val baseURL:String) {
 

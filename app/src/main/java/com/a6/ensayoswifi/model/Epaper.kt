@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.network.model
+package com.a6.ensayoswifi.model
 
 import com.google.gson.annotations.SerializedName
 
