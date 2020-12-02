@@ -18,4 +18,9 @@ class Repository(private val baseURL:String) {
         return device
     }
 
+    suspend fun getTemp(): State<out Any> {
+        val retrofitBuilder = RetrofitBuilder(baseURL)
+        return retrofitBuilder.getTemp("/temp")
+    }
+
 }

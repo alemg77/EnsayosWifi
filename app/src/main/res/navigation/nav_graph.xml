@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/buscarDispocitivos">
+    app:startDestination="@id/startFragment">
 
     <fragment
         android:id="@+id/buscarDispocitivos"
@@ -16,11 +16,23 @@
     </fragment>
     <fragment
         android:id="@+id/temperatureFragment"
-        android:name="com.a6.ensayoswifi.TemperatureFragment"
+        android:name="com.a6.ensayoswifi.ui.temperatura.TempFragment"
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" >
         <argument
-            android:name="device"
-            app:argType="com.a6.ensayoswifi.model.Device" />
+            android:name="ip"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.a6.ensayoswifi.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_buscarDispocitivos"
+            app:destination="@id/buscarDispocitivos" />
+        <action
+            android:id="@+id/action_startFragment_to_temperatureFragment"
+            app:destination="@id/temperatureFragment" />
     </fragment>
 </navigation>

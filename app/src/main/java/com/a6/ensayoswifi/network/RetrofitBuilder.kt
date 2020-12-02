@@ -63,4 +63,23 @@ class RetrofitBuilder(baseURL:String) {
         }
     }
 
+    suspend fun getTemp(url:String): State<out Any> {
+        return try {
+            val fetchGeneric = api.fetchTemp(url)
+            State.Success(fetchGeneric)
+        } catch (e:Throwable) {
+            when (e) {
+                is IOException -> {
+                    State.Error(IOException())
+                }
+                is HttpException -> {
+                    State.Error(e.code())
+                }
+                else -> {
+                    State.Error()
+                }
+            }
+        }
+    }
+
 }

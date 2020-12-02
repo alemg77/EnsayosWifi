@@ -1,17 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TemperatureFragment">
+        tools:context=".ui.temperatura.TempFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Temperaturas"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewT1Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="T1"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
+
+            <TextView
+                android:id="@+id/textViewT1Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="20sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textViewT1Name"
+                app:layout_constraintTop_toTopOf="@+id/textViewT1Name"/>
+
+            <TextView
+                android:id="@+id/textViewT2Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="T2"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewT1Name" />
+
+            <TextView
+                android:id="@+id/textViewT2Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="20sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textViewT2Name"
+                app:layout_constraintTop_toTopOf="@+id/textViewT2Name"/>
+
+            <TextView
+                android:id="@+id/textViewT3Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="T3"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewT2Name" />
+
+            <TextView
+                android:id="@+id/textViewT3Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="20sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textViewT3Name"
+                app:layout_constraintTop_toTopOf="@+id/textViewT3Name"/>
+
+            <TextView
+                android:id="@+id/textViewT4Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="T4"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewT3Name" />
+
+            <TextView
+                android:id="@+id/textViewT4Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="20sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@+id/textViewT4Name"
+                app:layout_constraintTop_toTopOf="@+id/textViewT4Name"/>
+
+            <Button
+                android:id="@+id/bottomActualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actualizar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewT4Value" />
+
+            <Button
+                android:id="@+id/bottomBuscarDispocitivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buscar dispocitivos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </FrameLayout>
 </layout>

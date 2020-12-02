@@ -5,17 +5,23 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.a6.ensayoswifi.R
+import com.a6.ensayoswifi.utils.SharedPreferencesManager
 import com.a6.ensayoswifi.databinding.BuscarDispocitivosFragmentBinding
 import com.a6.ensayoswifi.ui.base.BaseFragment
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBinding>(),
-    DeviceAdapter.DeviceListener {
+    DeviceAdapter.DeviceListener, KoinComponent {
 
     override fun getFragmentView() = R.layout.buscar_dispocitivos_fragment
 
     private lateinit var viewModel: BuscarDispocitivosViewModel
 
     private lateinit var deviceAdapter: DeviceAdapter
+
+    private val sharedPreferencesManager: SharedPreferencesManager by inject()
+
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -47,9 +53,17 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
 
     override fun deviceOnClick(position: Int) {
 
-        val action = BuscarDispocitivosFragmentDirections
-            .actionBuscarDispocitivosToTemperatureFragment(viewModel.devices[position])
-        Navigation.findNavController(binding.root).navigate(action)
+
+        val ipAddress = viewModel.devices[position].ipAdress
+
+        if ( ipAddress != null) {
+
+            sharedPreferencesManager.SaveIp(viewModel.devices[position])
+
+            val action = BuscarDispocitivosFragmentDirections
+                .actionBuscarDispocitivosToTemperatureFragment(ipAddress)
+            Navigation.findNavController(binding.root).navigate(action)
+        }
 
     }
 }
