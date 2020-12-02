@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.model
+package com.a6.ensayoswifi.data.model
 
 import android.os.Parcel
 import android.os.Parcelable

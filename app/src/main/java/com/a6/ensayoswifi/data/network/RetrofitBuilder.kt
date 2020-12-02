@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.network
+package com.a6.ensayoswifi.data.network
 
 import okhttp3.OkHttpClient
 import retrofit2.HttpException
@@ -63,9 +63,9 @@ class RetrofitBuilder(baseURL:String) {
         }
     }
 
-    suspend fun getTemp(url:String): State<out Any> {
+    suspend fun getMediciones(url:String): State<out Any> {
         return try {
-            val fetchGeneric = api.fetchTemp(url)
+            val fetchGeneric = api.fetchMediciones(url)
             State.Success(fetchGeneric)
         } catch (e:Throwable) {
             when (e) {

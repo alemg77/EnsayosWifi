@@ -1,6 +1,6 @@
-package com.a6.ensayoswifi.network
+package com.a6.ensayoswifi.data.network
 
-import com.a6.ensayoswifi.model.Device
+import com.a6.ensayoswifi.data.model.Device
 
 class Repository(private val baseURL:String) {
 
@@ -18,9 +18,9 @@ class Repository(private val baseURL:String) {
         return device
     }
 
-    suspend fun getTemp(): State<out Any> {
+    suspend fun getMediciones(): State<out Any> {
         val retrofitBuilder = RetrofitBuilder(baseURL)
-        return retrofitBuilder.getTemp("/temp")
+        return retrofitBuilder.getMediciones("/mediciones")
     }
 
 }

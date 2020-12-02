@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.network
+package com.a6.ensayoswifi.data.network
 
 sealed class State<T>(var data: T? = null) {
 

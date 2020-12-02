@@ -22,8 +22,6 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
 
     private val sharedPreferencesManager: SharedPreferencesManager by inject()
 
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -53,15 +51,14 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
 
     override fun deviceOnClick(position: Int) {
 
+        val device = viewModel.devices[position]
 
-        val ipAddress = viewModel.devices[position].ipAdress
+        if ( device.ipAdress != null) {
 
-        if ( ipAddress != null) {
-
-            sharedPreferencesManager.SaveIp(viewModel.devices[position])
+            sharedPreferencesManager.SaveDevice(device)
 
             val action = BuscarDispocitivosFragmentDirections
-                .actionBuscarDispocitivosToTemperatureFragment(ipAddress)
+                .actionBuscarDispocitivosToTemperatureFragment(device)
             Navigation.findNavController(binding.root).navigate(action)
         }
 

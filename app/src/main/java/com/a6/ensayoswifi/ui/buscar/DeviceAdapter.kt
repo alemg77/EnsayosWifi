@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.a6.ensayoswifi.databinding.DeviceItemBinding
-import com.a6.ensayoswifi.model.Device
+import com.a6.ensayoswifi.data.model.Device
 
 class DeviceAdapter(private var dataSet: ArrayList<Device>,  private val listener:DeviceListener) :
     RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {

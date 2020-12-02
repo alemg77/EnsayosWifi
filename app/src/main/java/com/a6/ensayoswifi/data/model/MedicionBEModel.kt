@@ -1,11 +1,11 @@
-package com.a6.ensayoswifi.model
+package com.a6.ensayoswifi.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity
-data class MedicionModel(
+data class MedicionBEModel(
     @SerializedName("T1") val t1: String,
     @SerializedName("T1Name") val t1Name:String,
     @SerializedName("T1Unidades") val t1Unidades:String,

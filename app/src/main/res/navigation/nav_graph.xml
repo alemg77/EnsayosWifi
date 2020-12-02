@@ -20,8 +20,8 @@
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" >
         <argument
-            android:name="ip"
-            app:argType="string" />
+            android:name="device"
+            app:argType="com.a6.ensayoswifi.data.model.Device" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"

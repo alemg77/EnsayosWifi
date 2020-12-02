@@ -1,7 +1,7 @@
 package com.a6.ensayoswifi.application
 
 import android.app.Application
-import com.a6.ensayoswifi.room.MedicionRepository
+import com.a6.ensayoswifi.data.MedicionRepository
 import com.a6.ensayoswifi.utils.SharedPreferencesManager
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext

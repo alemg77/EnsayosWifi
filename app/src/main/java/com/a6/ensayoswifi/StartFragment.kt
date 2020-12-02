@@ -17,12 +17,12 @@ class StartFragment : BaseFragment<FragmentStartBinding>(), KoinComponent {
     override fun onStart() {
         super.onStart()
 
-        val saveIp = sharedPreferencesManager.getSaveIp()
+        val device = sharedPreferencesManager.getSavedDevice()
 
-        if (saveIp == null) {
+        if ( device.ipAdress == null) {
             Navigation.findNavController(binding.root).navigate(R.id.buscarDispocitivos)
         } else {
-            val action = StartFragmentDirections.actionStartFragmentToTemperatureFragment(saveIp)
+            val action = StartFragmentDirections.actionStartFragmentToTemperatureFragment(device)
             Navigation.findNavController(binding.root).navigate(action)
         }
     }

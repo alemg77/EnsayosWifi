@@ -1,9 +1,10 @@
-package com.a6.ensayoswifi.room
+package com.a6.ensayoswifi.data.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.a6.ensayoswifi.data.model.Medicion
 
 @Database(
     entities = [Medicion::class],

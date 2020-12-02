@@ -1,7 +1,7 @@
-package com.a6.ensayoswifi.network
+package com.a6.ensayoswifi.data.network
 
-import com.a6.ensayoswifi.model.Device
-import com.a6.ensayoswifi.model.MedicionModel
+import com.a6.ensayoswifi.data.model.Device
+import com.a6.ensayoswifi.data.model.MedicionBEModel
 import retrofit2.http.GET
 import retrofit2.http.Url
 
@@ -18,9 +18,9 @@ interface Api {
     ): Device
 
     @GET
-    suspend fun fetchTemp(
+    suspend fun fetchMediciones(
         @Url url: String
-    ): MedicionModel
+    ): MedicionBEModel
 
 
 }
