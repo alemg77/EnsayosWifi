@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/temperatureFragment"
-        android:name="com.a6.ensayoswifi.ui.temperatura.TempFragment"
+        android:name="com.a6.ensayoswifi.ui.temperatura.MedicionFragment"
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" >
         <argument

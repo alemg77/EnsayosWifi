@@ -6,14 +6,13 @@ import androidx.navigation.Navigation
 import com.a6.ensayoswifi.R
 import com.a6.ensayoswifi.data.MedicionRepository
 import com.a6.ensayoswifi.data.model.Device
-import com.a6.ensayoswifi.data.model.Medicion
 import com.a6.ensayoswifi.databinding.FragmentTemperatureBinding
 import com.a6.ensayoswifi.ui.base.BaseFragment
 import org.koin.android.ext.android.inject
 import org.koin.core.KoinComponent
 
 
-class TempFragment : BaseFragment<FragmentTemperatureBinding>(), KoinComponent {
+class MedicionFragment : BaseFragment<FragmentTemperatureBinding>(), KoinComponent {
 
     override fun getFragmentView() = R.layout.fragment_temperature
 
@@ -24,7 +23,7 @@ class TempFragment : BaseFragment<FragmentTemperatureBinding>(), KoinComponent {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        device = TempFragmentArgs.fromBundle(requireArguments()).device
+        device = MedicionFragmentArgs.fromBundle(requireArguments()).device
 
         ipAdrees = device.ipAdress.toString()
 
@@ -39,23 +38,22 @@ class TempFragment : BaseFragment<FragmentTemperatureBinding>(), KoinComponent {
         val viewModel = MedicionesViewModel(ipAdrees)
         viewModel.getMediciones()
 
-        viewModel.temp.observe(viewLifecycleOwner, {
-            val value = viewModel.temp.value
-            if (value != null) {
+        viewModel.mediciones.observe(viewLifecycleOwner, {
+            val mediciones = viewModel.mediciones.value
+            if (mediciones != null) {
+                // Guardo en room
+                repository.insertAll(mediciones)
 
-                val medicion = Medicion(value.t1Name, value.t1, value.t1Unidades)
+                binding.textViewT1Name.text = mediciones[0].name + " = "
+                binding.textViewT2Name.text = mediciones[1].name + " = "
+                binding.textViewT3Name.text = mediciones[2].name + " = "
+                binding.textViewT4Name.text = mediciones[3].name + " = "
 
-                repository.insertAll(medicion)
+                binding.textViewT1Value.text = mediciones[0].value + mediciones[0].unit
+                binding.textViewT2Value.text = mediciones[1].value + mediciones[1].unit
+                binding.textViewT3Value.text = mediciones[2].value + mediciones[2].unit
+                binding.textViewT4Value.text = mediciones[3].value + mediciones[3].unit
 
-                binding.textViewT1Name.text = value.t1Name + " = "
-                binding.textViewT2Name.text = value.t2Name + " = "
-                binding.textViewT3Name.text = value.t3Name + " = "
-                binding.textViewT4Name.text = value.t4Name + " = "
-
-                binding.textViewT1Value.text = value.t1 + value.t1Unidades
-                binding.textViewT2Value.text = value.t2 + value.t2Unidades
-                binding.textViewT3Value.text = value.t3 + value.t3Unidades
-                binding.textViewT4Value.text = value.t4 + value.t4Unidades
             }
         })
 

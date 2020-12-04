@@ -6,12 +6,20 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Medicion(
-    @ColumnInfo(name = "Name") val name: String,
-    @ColumnInfo(name = "Value") val value: String,
-    @ColumnInfo(name = "Unit") val unit: String,
-){
-    @PrimaryKey(autoGenerate = true) var id: Int = 0 // or foodId: Int? = null
-    @ColumnInfo(name = "time") var time: Long = System.currentTimeMillis()
+    @ColumnInfo(name = "Name") var name: String,
+    @ColumnInfo(name = "Value") var value: String,
+    @ColumnInfo(name = "Units") var unit: String,
+    @ColumnInfo(name = "time") var time: String
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
+    constructor(medicionBE: MedicionBEModel) : this(
+        medicionBE.name,
+        medicionBE.value,
+        medicionBE.unit,
+        medicionBE.time
+    )
 
 }
 

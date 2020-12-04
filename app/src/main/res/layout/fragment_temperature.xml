@@ -6,7 +6,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.temperatura.TempFragment">
+        tools:context=".ui.temperatura.MedicionFragment">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

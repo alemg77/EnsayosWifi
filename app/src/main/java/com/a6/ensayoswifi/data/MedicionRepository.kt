@@ -20,6 +20,14 @@ class MedicionRepository(app: Application) : ViewModel() {
         }
     }
 
+    fun insertAll ( mediciones: ArrayList<Medicion>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            for ( medicion in mediciones ){
+                db?.medicionDao()?.insertAll(medicion)
+            }
+        }
+    }
+
     fun insertAll(vararg medicion: Medicion){
         viewModelScope.launch(Dispatchers.IO) {
             db?.medicionDao()?.insertAll(*medicion)
