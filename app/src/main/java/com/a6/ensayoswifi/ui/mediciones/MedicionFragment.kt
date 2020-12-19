@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.ui.temperatura
+package com.a6.ensayoswifi.ui.mediciones
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -34,6 +34,7 @@ class MedicionFragment : BaseFragment<FragmentTemperatureBinding>(), KoinCompone
         super.onActivityCreated(savedInstanceState)
 
         binding.textViewTitulo.text = device.hardware
+
         
         val viewModel = MedicionesViewModel(ipAdrees)
         viewModel.getMediciones()
@@ -65,6 +66,10 @@ class MedicionFragment : BaseFragment<FragmentTemperatureBinding>(), KoinCompone
             Navigation.findNavController(binding.root).navigate(R.id.buscarDispocitivos)
         }
 
+        binding.bottomConfig.setOnClickListener {
+            val action = MedicionFragmentDirections.actionTemperatureFragmentToConfigFragment(device)
+            Navigation.findNavController(binding.root).navigate(action)
+        }
 
     }
 

@@ -10,6 +10,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="#3291F1"
             android:layout_height="match_parent">
 
             <TextView
@@ -18,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="Buscando dispocitivos"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,16 +35,36 @@
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+
+            <TextView
+                android:id="@+id/textViewMyIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="IP:"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textViewMyIpValue"
+                android:layout_marginStart="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/textViewMyIp"
+                app:layout_constraintTop_toTopOf="@+id/textViewMyIp"
+                />
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
-                android:layout_marginTop="40dp"
-                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
                 android:text="Buscados"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewMyIp" />
 
             <TextView
                 android:id="@+id/textViewContadorBuscados"
@@ -75,7 +96,7 @@
                 android:id="@+id/RecyclerViewDispocitivos"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="5dp"
+                android:layout_margin="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

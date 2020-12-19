@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.ui.temperatura
+package com.a6.ensayoswifi.ui.mediciones
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

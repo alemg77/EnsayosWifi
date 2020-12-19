@@ -12,17 +12,25 @@
         tools:layout="@layout/buscar_dispocitivos_fragment" >
         <action
             android:id="@+id/action_buscarDispocitivos_to_temperatureFragment"
-            app:destination="@id/temperatureFragment" />
+            app:destination="@id/fragmentMediciones" />
+        <action
+            android:id="@+id/action_buscarDispocitivos_to_contactoraFragment"
+            app:destination="@id/contactoraFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/temperatureFragment"
-        android:name="com.a6.ensayoswifi.ui.temperatura.MedicionFragment"
+        android:id="@+id/fragmentMediciones"
+        android:name="com.a6.ensayoswifi.ui.mediciones.MedicionFragment"
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" >
         <argument
             android:name="device"
             app:argType="com.a6.ensayoswifi.data.model.Device" />
+        <action
+            android:id="@+id/action_temperatureFragment_to_configFragment"
+            app:destination="@id/configFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/startFragment"
         android:name="com.a6.ensayoswifi.StartFragment"
@@ -33,6 +41,29 @@
             app:destination="@id/buscarDispocitivos" />
         <action
             android:id="@+id/action_startFragment_to_temperatureFragment"
-            app:destination="@id/temperatureFragment" />
+            app:destination="@id/fragmentMediciones" />
+        <action
+            android:id="@+id/action_startFragment_to_contactoraFragment"
+            app:destination="@id/contactoraFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.a6.ensayoswifi.ui.config.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+        <argument
+            android:name="device"
+            app:argType="com.a6.ensayoswifi.data.model.Device" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactoraFragment"
+        android:name="com.a6.ensayoswifi.ui.contactora.ContactoraFragment"
+        android:label="fragment_contactora"
+        tools:layout="@layout/fragment_contactora" >
+        <argument
+            android:name="device"
+            app:argType="com.a6.ensayoswifi.data.model.Device" />
+    </fragment>
+
 </navigation>

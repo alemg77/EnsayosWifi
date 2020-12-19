@@ -1,4 +1,4 @@
-package com.a6.ensayoswifi.ui.temperatura
+package com.a6.ensayoswifi.ui.mediciones
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

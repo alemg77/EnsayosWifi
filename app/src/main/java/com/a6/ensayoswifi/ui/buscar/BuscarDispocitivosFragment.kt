@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.a6.ensayoswifi.R
-import com.a6.ensayoswifi.utils.SharedPreferencesManager
 import com.a6.ensayoswifi.databinding.BuscarDispocitivosFragmentBinding
 import com.a6.ensayoswifi.ui.base.BaseFragment
+import com.a6.ensayoswifi.utils.SharedPreferencesManager
+import com.a6.ensayoswifi.utils.Utils
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -28,12 +29,16 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
         viewModel = ViewModelProvider(this).get(BuscarDispocitivosViewModel::class.java)
 
         deviceAdapter = DeviceAdapter(viewModel.devices, this)
+
         binding.RecyclerViewDispocitivos.layoutManager = LinearLayoutManager(activity)
+
         binding.RecyclerViewDispocitivos.adapter = deviceAdapter
 
         viewModel.test()
 
         observarViewModel()
+
+        binding.textViewMyIpValue.text = Utils.getIPAddress(true)
 
     }
 
@@ -53,14 +58,19 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
 
         val device = viewModel.devices[position]
 
-        if ( device.ipAdress != null) {
+        if (device.ipAdress != null) {
 
             sharedPreferencesManager.SaveDevice(device)
 
-            val action = BuscarDispocitivosFragmentDirections
-                .actionBuscarDispocitivosToTemperatureFragment(device)
-            Navigation.findNavController(binding.root).navigate(action)
+            if (device.hardware.equals("Contactora")) {
+                val action = BuscarDispocitivosFragmentDirections
+                    .actionBuscarDispocitivosToContactoraFragment(device)
+                Navigation.findNavController(binding.root).navigate(action)
+            } else {
+                val action = BuscarDispocitivosFragmentDirections
+                    .actionBuscarDispocitivosToTemperatureFragment(device)
+                Navigation.findNavController(binding.root).navigate(action)
+            }
         }
-
     }
 }
