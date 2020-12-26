@@ -36,7 +36,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="15dp"
                     android:text="T1"
-                    android:textSize="25sp"
+                    android:textSize="45sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
 
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:text="--"
-                    android:textSize="25sp"
+                    android:textSize="45sp"
                     app:layout_constraintStart_toEndOf="@+id/textViewT1Name"
                     app:layout_constraintTop_toTopOf="@+id/textViewT1Name" />
 
@@ -57,7 +57,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="5dp"
                     android:text="T2"
-                    android:textSize="25sp"
+                    android:textSize="45sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textViewT1Name" />
 
@@ -67,90 +67,45 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:text="--"
-                    android:textSize="25sp"
+                    android:textSize="45sp"
                     app:layout_constraintStart_toEndOf="@+id/textViewT2Name"
                     app:layout_constraintTop_toTopOf="@+id/textViewT2Name" />
 
                 <Button
                     android:id="@+id/bottomActualizar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="230dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
                     android:text="Actualizar"
-                    app:layout_constraintEnd_toStartOf="@id/bottomConfig"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewT2Name" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+
 
                 <Button
                     android:id="@+id/bottomConfig"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="230dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
                     android:text="Configurar"
-                    app:layout_constraintBottom_toBottomOf="@+id/bottomActualizar"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/bottomActualizar" />
-
-
-                <Button
-                    android:id="@+id/bottomPrenderLedVerde"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="PRENDER LED VERDE"
-                    app:layout_constraintEnd_toStartOf="@+id/bottomApagarLedVerde"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bottomPrenderContactora" />
-
-                <Button
-                    android:id="@+id/bottomApagarLedVerde"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Apagar Led Verde"
-                    app:layout_constraintBottom_toBottomOf="@+id/bottomPrenderLedVerde"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/bottomPrenderLedVerde"
-                    app:layout_constraintTop_toTopOf="@+id/bottomPrenderLedVerde" />
-
-
-                <Button
-                    android:id="@+id/bottomPrenderLedRojo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="PRENDER LED ROjo"
-                    app:layout_constraintEnd_toStartOf="@+id/bottomApagarRojo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bottomPrenderLedVerde" />
-
-
-                <Button
-                    android:id="@+id/bottomApagarRojo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Apagar Led Rojo"
-                    app:layout_constraintBottom_toBottomOf="@+id/bottomPrenderLedRojo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.627"
-                    app:layout_constraintStart_toEndOf="@+id/bottomPrenderLedRojo"
-                    app:layout_constraintTop_toTopOf="@+id/bottomPrenderLedRojo" />
-
-                <Button
-                    android:id="@+id/bottomPrenderContactora"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Activar Contactora"
-                    app:layout_constraintEnd_toStartOf="@+id/bottomApagarContactora"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/bottomActualizar"
                     app:layout_constraintTop_toBottomOf="@+id/bottomActualizar" />
 
 
                 <Button
+                    android:id="@+id/bottomPrenderContactora"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:text="Activar Contactora"
+                    app:layout_constraintEnd_toStartOf="@+id/bottomApagarContactora"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bottomBuscarDispocitivos" />
+
+                <Button
                     android:id="@+id/bottomApagarContactora"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_margin="5dp"
                     android:text="Apagar Contactora"
                     app:layout_constraintBottom_toBottomOf="@+id/bottomPrenderContactora"
@@ -161,12 +116,13 @@
 
                 <Button
                     android:id="@+id/bottomBuscarDispocitivos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="230dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
                     android:text="Buscar dispocitivos"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bottomPrenderLedRojo" />
+                    app:layout_constraintStart_toStartOf="@+id/bottomActualizar"
+                    app:layout_constraintTop_toBottomOf="@+id/bottomConfig" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

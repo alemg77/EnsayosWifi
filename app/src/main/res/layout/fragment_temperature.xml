@@ -30,9 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="15dp"
                 android:text="T1"
                 android:textSize="25sp"
-                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewTitulo" />
@@ -41,20 +41,20 @@
                 android:id="@+id/textViewT1Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="--"
                 android:textSize="25sp"
-                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/textViewT1Name"
-                app:layout_constraintTop_toTopOf="@+id/textViewT1Name"/>
+                app:layout_constraintTop_toTopOf="@+id/textViewT1Name" />
 
             <TextView
                 android:id="@+id/textViewT2Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="5dp"
                 android:text="T2"
                 android:textSize="25sp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewT1Name" />
@@ -63,20 +63,20 @@
                 android:id="@+id/textViewT2Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="--"
                 android:textSize="25sp"
-                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/textViewT2Name"
-                app:layout_constraintTop_toTopOf="@+id/textViewT2Name"/>
+                app:layout_constraintTop_toTopOf="@+id/textViewT2Name" />
 
             <TextView
                 android:id="@+id/textViewT3Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="5dp"
                 android:text="T3"
                 android:textSize="25sp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewT2Name" />
@@ -85,20 +85,20 @@
                 android:id="@+id/textViewT3Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="--"
                 android:textSize="25sp"
-                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/textViewT3Name"
-                app:layout_constraintTop_toTopOf="@+id/textViewT3Name"/>
+                app:layout_constraintTop_toTopOf="@+id/textViewT3Name" />
 
             <TextView
                 android:id="@+id/textViewT4Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="5dp"
                 android:text="T4"
                 android:textSize="25sp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/textViewTitulo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewT3Name" />
@@ -107,11 +107,11 @@
                 android:id="@+id/textViewT4Value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="--"
                 android:textSize="25sp"
-                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toEndOf="@+id/textViewT4Name"
-                app:layout_constraintTop_toTopOf="@+id/textViewT4Name"/>
+                app:layout_constraintTop_toTopOf="@+id/textViewT4Name" />
 
             <Button
                 android:id="@+id/bottomActualizar"
@@ -125,9 +125,9 @@
 
             <Button
                 android:id="@+id/bottomConfig"
-                android:text="Configurar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Configurar"
                 app:layout_constraintBottom_toBottomOf="@+id/bottomActualizar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bottomActualizar" />

@@ -1,5 +1,6 @@
 package com.a6.ensayoswifi.ui.contactora
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,12 +20,37 @@ class ContactoraFragment : BaseFragment<FragmentContactoraBinding>() {
     private lateinit var device: Device
     private lateinit var viewModel:ContactoraViewModel
 
-    override fun onResume() {
-        super.onResume()
+    @SuppressLint("SetTextI18n")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         device = ContactoraFragmentArgs.fromBundle(requireArguments()).device
 
         viewModel = device.ipAdress?.let { ContactoraViewModel(it) }!!
+
+        viewModel.mediciones.observe(viewLifecycleOwner, {
+            val mediciones = viewModel.mediciones.value
+            if (mediciones != null) {
+                binding.textViewT1Name.text = mediciones[0].name + " = "
+                binding.textViewT1Value.text = mediciones[0].value + mediciones[0].unit
+
+                binding.textViewT2Name.text = mediciones[1].name + " = "
+                binding.textViewT2Value.text = mediciones[1].value + mediciones[1].unit
+            }
+        })
+
+        viewModel.getMediciones()
+
+        binding.bottomActualizar.setOnClickListener {
+            viewModel.getMediciones()
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        device = ContactoraFragmentArgs.fromBundle(requireArguments()).device
 
         binding.bottomApagarContactora.setOnClickListener {
             viewModel.clrPin(PIN_CONTACTORA)
@@ -34,19 +60,19 @@ class ContactoraFragment : BaseFragment<FragmentContactoraBinding>() {
             viewModel.setPin(PIN_CONTACTORA)
         }
 
-        binding.bottomApagarLedVerde.setOnClickListener {
+        binding.bottomApagarLedVerde?.setOnClickListener {
             viewModel.clrPin(PIN_LED_VERDE)
         }
 
-        binding.bottomPrenderLedVerde.setOnClickListener {
+        binding.bottomPrenderLedVerde?.setOnClickListener {
             viewModel.setPin(PIN_LED_VERDE)
         }
 
-        binding.bottomPrenderLedRojo.setOnClickListener {
+        binding.bottomPrenderLedRojo?.setOnClickListener {
             viewModel.setPin(PIN_LED_ROJO)
         }
 
-        binding.bottomApagarRojo.setOnClickListener {
+        binding.bottomApagarRojo?.setOnClickListener {
             viewModel.clrPin(PIN_LED_ROJO)
         }
 
