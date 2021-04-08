@@ -13,11 +13,12 @@ class Repository(private val baseURL:String) {
         return RetrofitBuilder(baseURL).updateConfig(device)
     }
 
-    suspend fun getDevice(url:String): State<out Any> {
-        val retrofitBuilder = RetrofitBuilder(baseURL+url)
+    suspend fun getDevice(num:String): State<out Any> {
+        val url = "$baseURL$num:7777/"
+        val retrofitBuilder = RetrofitBuilder(url)
         val device = retrofitBuilder.getDevice("/id")
         if ( device is State.Success ){
-            (device.data as Device).ipAdress = baseURL+url
+            (device.data as Device).ipAdress = baseURL+num
         }
         return device
     }

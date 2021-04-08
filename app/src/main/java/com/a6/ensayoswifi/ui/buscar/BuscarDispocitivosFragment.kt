@@ -12,6 +12,9 @@ import com.a6.ensayoswifi.utils.Utils
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
+import android.system.Os.socket
+
+
 class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBinding>(),
     DeviceAdapter.DeviceListener, KoinComponent {
 
@@ -73,4 +76,9 @@ class BuscarDispocitivosFragment : BaseFragment<BuscarDispocitivosFragmentBindin
             }
         }
     }
+
+    companion object {
+        private const val NORMAL_CLOSURE_STATUS = 1000
+    }
 }
+
